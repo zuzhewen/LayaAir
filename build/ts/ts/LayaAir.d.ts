@@ -2127,22 +2127,22 @@ declare module laya.d3.component {
 		constructor(name:string);
 
 		/**
-		 * @implements IReferenceCounter
+		 * @implements 
 		 */
 		_getReferenceCount():number;
 
 		/**
-		 * @implements IReferenceCounter
+		 * @implements 
 		 */
 		_addReference(count?:number):void;
 
 		/**
-		 * @implements IReferenceCounter
+		 * @implements 
 		 */
 		_removeReference(count?:number):void;
 
 		/**
-		 * @implements IReferenceCounter
+		 * @implements 
 		 */
 		_clearReference():void;
 
@@ -2263,22 +2263,22 @@ declare module laya.d3.component {
 		constructor();
 
 		/**
-		 * @implements IReferenceCounter
+		 * @implements 
 		 */
 		_getReferenceCount():number;
 
 		/**
-		 * @implements IReferenceCounter
+		 * @implements 
 		 */
 		_addReference(count?:number):void;
 
 		/**
-		 * @implements IReferenceCounter
+		 * @implements 
 		 */
 		_removeReference(count?:number):void;
 
 		/**
-		 * @implements IReferenceCounter
+		 * @implements 
 		 */
 		_clearReference():void;
 
@@ -3908,6 +3908,55 @@ declare module laya.d3.core.material {
 		 * @override 
 		 */
 		cloneTo(destObject:any):void;
+	}
+
+}
+
+declare module laya.d3.core.material {
+	class CustomMaterialBase extends laya.d3.core.material.Material  {
+		static CULL:number;
+		static BLEND:number;
+		static BLEND_SRC:number;
+		static BLEND_DST:number;
+		static DEPTH_TEST:number;
+		static DEPTH_WRITE:number;
+		static AddCustomMaterialClass(str:string,classDef:any):void;
+
+		/**
+		 * 是否写入深度。
+		 */
+		get depthWrite():boolean;
+		set depthWrite(value:boolean);
+
+		/**
+		 * 剔除方式。
+		 */
+		get cull():number;
+		set cull(value:number);
+
+		/**
+		 * 混合方式。
+		 */
+		get blend():number;
+		set blend(value:number);
+
+		/**
+		 * 混合源。
+		 */
+		get blendSrc():number;
+		set blendSrc(value:number);
+
+		/**
+		 * 混合目标。
+		 */
+		get blendDst():number;
+		set blendDst(value:number);
+
+		/**
+		 * 深度测试方式。
+		 */
+		get depthTest():number;
+		set depthTest(value:number);
 	}
 
 }
@@ -39457,7 +39506,7 @@ declare module laya.ui {
 		protected measureHeight():number;
 
 		/**
-		 * @implements <p>数据赋值，通过对UI赋值来控制UI显示逻辑。</p><p>简单赋值会更改组件的默认属性，使用大括号可以指定组件的任意属性进行赋值。</p>
+		 * @implements 数据赋值，通过对UI赋值来控制UI显示逻辑。</p><p>简单赋值会更改组件的默认属性，使用大括号可以指定组件的任意属性进行赋值。</p>
 		 * @example //默认属性赋值dataSource = {label1: "改变了label", checkbox1: true};//(更改了label1的text属性值，更改checkbox1的selected属性)。//任意属性赋值dataSource = {label2: {text:"改变了label",size:14}, checkbox2: {selected:true,x:10}};
 		 */
 		get dataSource():any;
@@ -40219,7 +40268,7 @@ declare module laya.ui {
 		protected loadUI(path:string):void;
 
 		/**
-		 * @implements laya.ui.UIComponent#dataSource
+		 * @implements #dataSource
 		 */
 		get dataSource():any;
 		set dataSource(value:any);
@@ -46587,6 +46636,8 @@ enum ShadowMode {
 	 */
 
 	class BlinnPhongMaterial extends laya.d3.core.material.BlinnPhongMaterial {}
+
+	class CustomMaterialBase extends laya.d3.core.material.CustomMaterialBase {}
 
 	/**
 	 * <code>EffectMaterial</code> 类用于实现Mesh特效材质。
